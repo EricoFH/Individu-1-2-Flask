@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Beranda - Biodataku{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-7">
+        <h1 class="display-4 fw-bold teks-terang">Who Am I?</h1>
+        <p class="lead teks-terang">
+          Hanya seorang mahasiswa biasa yang berpikir kalau sistem informasi itu mudah.
+        </p>
+        <a href="{{ url_for('tentang') }}" class="btn btn-utama">Kenali Saya</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

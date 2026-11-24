@@ -1,0 +1,23 @@
+{% extends "admin/base_admin.html" %}
+{% block title %}Semester - Admin{% endblock %}
+{% block judul %}Data Semester{% endblock %}
+
+{% block admin_content %}
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead class="table-dark">
+      <tr><th>#</th><th>Semester</th><th>IP</th><th>Persentase dari 4.00</th></tr>
+    </thead>
+    <tbody>
+      {% for s in semester %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>Semester {{ s.semester }}</td>
+        <td>{{ "%.2f"|format(s.ip) }}</td>
+        <td>{{ s.persen }}%</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

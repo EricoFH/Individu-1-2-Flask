@@ -1,0 +1,85 @@
+:root {
+  --warna-utama: #4a4a5a;
+  --warna-gelap: #212529;
+  --warna-aksen: #ffc107;
+  --warna-teks: #1f2933;
+  --warna-terang: white
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  color: var(--warna-teks);
+  background: var(--warna-gelap) url("../img/background.jpg")
+              center / cover no-repeat fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+}
+
+main { flex: 1; }
+
+.navbar-custom { background-color: var(--warna-utama); }
+
+.btn-utama {
+  background: var(--warna-terang);
+  color: var(--warna-gelap);
+  font-weight: 600;
+}
+.btn-utama:hover { filter: brightness(0.92); }
+
+.teks-terang {
+  color: #fff;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.hero { padding: 110px 0; }
+.section { padding: 50px 0; }
+.section-title { margin-bottom: 40px; }
+
+.card { transition: 0.3s; }
+.card-hover:hover { transform: translateY(-10px); }
+
+.panel {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.footer {
+  padding: 30px 0;
+  background-color: var(--warna-gelap);
+  color: #fff;
+}
+
+/*Dashboard admin*/
+.sidebar {
+  background-color: rgba(33, 37, 41, 0.85);
+  min-height: calc(100vh - 56px);
+}
+.sidebar .nav-link { color: #ced4da; }
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  color: #fff;
+  background-color: var(--warna-utama);
+}
+
+.admin-area {
+  background-color: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(6px);
+  min-height: calc(100vh - 56px);
+}
+
+.nav-pills .nav-link.active { background-color: var(--warna-utama); }
+
+@media (max-width: 768px) {
+  .hero { padding: 60px 0; }
+}

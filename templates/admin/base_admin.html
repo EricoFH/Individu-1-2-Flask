@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Admin - Biodataku{% endblock %}
+
+{% block content %}
+{% set menu_admin = [("admin_dashboard", "Dashboard"),
+                     ("admin_semester", "Semester")] %}
+
+<div class="container-fluid">
+  <div class="row">
+
+    {# sidebar: disembunyikan di layar kecil #}
+    <aside class="col-md-3 col-lg-2 d-none d-md-block sidebar py-4">
+      <h6 class="text-uppercase text-white-50 px-3 mb-3">Menu Admin</h6>
+      <nav class="nav flex-column">
+        {% for endpoint, label in menu_admin %}
+        <a class="nav-link {{ 'active' if request.endpoint == endpoint }}"
+           href="{{ url_for(endpoint) }}">{{ label }}</a>
+        {% endfor %}
+      </nav>
+    </aside>
+
+    <section class="col-md-9 col-lg-10 p-4 admin-area">
+      {# pengganti sidebar di layar HP #}
+      <nav class="nav nav-pills d-md-none mb-3">
+        {% for endpoint, label in menu_admin %}
+        <a class="nav-link {{ 'active' if request.endpoint == endpoint }}"
+           href="{{ url_for(endpoint) }}">{{ label }}</a>
+        {% endfor %}
+      </nav>
+
+      <h2 class="mb-4">{% block judul %}{% endblock %}</h2>
+      {% block admin_content %}{% endblock %}
+    </section>
+
+  </div>
+</div>
+{% endblock %}

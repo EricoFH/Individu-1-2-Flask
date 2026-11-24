@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Nilai - Biodataku{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h2 class="text-center section-title teks-terang">Nilai</h2>
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="panel table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-dark">
+              <tr><th>No</th><th>Mata Kuliah</th><th>Nilai</th></tr>
+            </thead>
+            <tbody>
+              {% for m in mata_kuliah %}
+              <tr>
+                <td>{{ m.no }}</td>
+                <td>{{ m.nama }}</td>
+                <td>{{ m.nilai }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="panel table-responsive">
+          <table class="table align-middle text-center mb-0">
+            <thead class="table-dark">
+              <tr><th>Semester</th><th>IP</th></tr>
+            </thead>
+            <tbody>
+              {% for s in semester %}
+              <tr>
+                <td>{{ s.semester }}</td>
+                <td>{{ "%.2f"|format(s.ip) }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

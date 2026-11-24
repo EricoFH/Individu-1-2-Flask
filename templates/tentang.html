@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Tentang - Biodataku{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="text-center section-title">
+      <h2 class="teks-terang">Tentang</h2>
+      <p class="teks-terang">Saya sebagai mahasiswa UNTAG</p>
+    </div>
+
+    <div class="row">
+      {% for p in profil %}
+      <div class="col-md-4 mb-4">
+        <div class="card card-hover h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h4 class="card-title"><b>{{ p.label }}</b></h4>
+            <p class="card-text">{{ p.isi }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

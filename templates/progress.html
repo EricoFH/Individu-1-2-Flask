@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Progress - Biodataku{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h2 class="text-center section-title teks-terang">Progress Belajar</h2>
+
+    {% for s in semester %}
+    <p class="teks-terang mb-1">Semester {{ s.semester }}</p>
+    <div class="progress mb-3" role="progressbar"
+         aria-label="IP semester {{ s.semester }}"
+         aria-valuenow="{{ s.persen }}" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar {{ 'bg-success' if loop.index0 % 2 else '' }}"
+           style="width: {{ s.persen }}%">
+        {{ "%.2f"|format(s.ip) }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
